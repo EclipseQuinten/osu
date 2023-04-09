@@ -30,13 +30,11 @@ namespace osu.Game.Rulesets.Catch.Difficulty.Skills
 
         private float? lastPlayerPosition;
 
-        private int index;
-
         private Direction lastDirectionMoved;
 
-        private const float direction_change_bonus = 2.0f;
+        private const float direction_change_bonus = 1.2f;
 
-        private const float no_direction_change_malus = 0.0f;
+        private const float no_direction_change_malus = 0.8f;
 
         private const float movement_stop_start_bonus = 1.0f;
 
@@ -52,9 +50,9 @@ namespace osu.Game.Rulesets.Catch.Difficulty.Skills
         {
         }
 
-        protected override double SkillMultiplier => throw new NotImplementedException();
+        protected override double SkillMultiplier => 1;
 
-        protected override double StrainDecayBase => throw new NotImplementedException();
+        protected override double StrainDecayBase => 0.0;
 
         protected override double StrainValueOf(DifficultyHitObject current)
         {
@@ -93,7 +91,7 @@ namespace osu.Game.Rulesets.Catch.Difficulty.Skills
 
             // Set last direction moved
             lastDirectionMoved = currentDirection;
-
+            Console.WriteLine("WEIGHT" + weight);
             return weight;
         }
 
